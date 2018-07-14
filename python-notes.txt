@@ -1,0 +1,208 @@
+
+- Maps are also called dictionaries
+
+- int(variable)
+    - function converts data-type into integer
+- string(v) #assuming v is an integer = 10
+    - python prints the new string as '10'
+- float(v) #again, v = 10
+    - becomes 10.0
+- bool(v) 
+    - anything that isn't 0 is equal to true
+
+- 0 = v
+    - not legal b/c namespace doesn't expects the name on the left
+
+- a. #converts a into a float
+
+- python statements can be broken into multiple lines
+    - ex: print( " some"
+           "thing nice")
+
+- appending variables is allowed
+    - a+= 5 # a = a + 5
+
+- defining a fuction
+    - def function_name(param_float): #<- param_float is the parameter
+        return param_float * 1.8 + 32.0
+- callng a function
+    - F = celsius_to_Farenhei(cel_float) #<- cel_float is the argument
+
+- functions can either return or not return a value (may print as well)
+- indent after function decleration for implementation (no brackets ftw)
+
+- function returns can return multilple values
+    - def function_name():
+        return x,y
+    - calling it:a,b = function_name()
+
+- functions can access global variables (declared outside of the function)
+    - assuming the variable is defined before the function called
+    - variables can be declared as global in functions
+        - global variable_name
+
+- docstring: """this is a docstring"""
+    - helps to remind the purpose of a function
+    - help(sqrt) #gives the docstring of the function 
+        - function_name.__doc__ #another method of doing the same thing
+
+- input("print statement")
+    - printes statement and takes input from user as a string
+
+- lambda functions are nameless temporary functions
+    - lambda argument_list:expression
+    - sum = lambda x,y:x+y
+      sum(3 + 5)
+      
+- PYTHON HOMEWORK IN THE SLIDES: EMAIL IT BY NEXT WEEK
+
+- if statements in python:
+    - if <condition>:
+        <body>
+      else:
+        <else-body>
+    - ex:
+        if 5==5:
+            print("Math still works")
+        elif 6 == 6:
+            print("Math kindof works")
+        else:
+            print("Math is broken")
+
+- string comparison
+    - similar to a dictionary search/ordering
+        - string s1, s2
+            - s1 < s2 #compares first character of s1 and s2, if equal move to second
+    - uses Unicode to compare characters
+
+- evaluating booleans
+    - 0 - false
+    - 1 (or any number != 0) - true #like c++
+
+- when using main() in a program that can run as a script or module, a conidtional should
+  be used for the main() (to control whether it runs or not)
+
+- __name__ #variable to check the name of function in a module
+
+- exception handling
+    - used to avoid errors
+    - try:
+        <code> #runs if errors aren't found
+      except ValueError: #syntax: except <error-type>:
+        <more-code> #runs if error is found
+
+    - Example of for loops in python (definite loops)
+    For i in [0,1,2,3]:
+    		print (i)
+	    Output:
+	    0
+	    1
+	    2
+	    3
+   
+    - range(): creates a sequence in python
+        - range(start,stop,step) #creates the set [start,stop) (includes start, excludes stop)
+        - range(stop) #generates a sequence of (stop) elements starting from 0
+        - range(5) #produces {0,1,2,3,4}
+
+    - x = eval(input(“Enter a value for x”)) #accepts the appropriate data-type for x 
+      according to the input
+
+    - Indefinite loops/Conditional loops: 
+        - while <condition>:
+	        <body>
+        - i = 0
+          while i <=10:
+	        print(i)
+	        i = i + 1
+
+    - Sentinel values: iterates the loop until sentinel values are met
+      Nested loops
+
+
+- eval(input("enter someting"))
+    - eval() function is used to automatically convert inputs into:
+        - 5 #int
+        - 5.4 #float
+        - True #bool
+        - (1,2,3,4) #tuple
+        - [1,2,3,4] #list
+    
+- Files in Python 
+
+    - my_file = open("my_file.txt", "r") #open("file_name_or_path", "mode")
+        - creates a file in the current directory #look at sides for more details
+        - if file is located in a different directory, the path must be provided
+            - C/Desktop/whatever
+        - modes 'r','w','a','r+','w+','a+'
+            - r: read only
+            - w: write only #creates a new file or clears contents of existin one
+            - a: write only/append #adds contents to the end of existing file
+
+    - file_obj.close()
+        - saves the contents to the file from the buffer (from the program to the hard drive)
+        - all files should be closed
+
+    - reading a file (MORE STUFF IN THE SLIDES)
+        - file_name = open("name.txt","r")
+          print(file_name.read()) #prints all contents of the file and moves the byte
+                                  #pointer
+          print(file_name.readline()) #reads string until new line
+
+    - with open("file_name", "a") as f: #automaticall closes file (with, as: compound stmnt)
+        f.write("\nStringINPUT")
+
+    - print statement suff 
+        - print("U","S","A", sep=".") #tells print() what to put after each  comma
+            - output: U.S.A
+            - default: sep = " "
+        - print("something", end = "") #prints "" at the end of each value(\n by default)
+            - output: something #no \n at the end
+            - default: end = "\n"
+        - print("something", file = "f.txt") #prints contents to file.txt
+            - default: file = sys.stdout
+        - print("something", file = "f.txt", flush = True) #flushes contents of the buffer to the file stream
+            - default: flush = false
+    
+    - help(print)
+        - gives details of print function
+    
+    - strings are character sets
+        - len(string)
+
+- STRINGS AND STUFF
+
+    - string indeces
+        - str[c] #like other languages, starting from 0 -> len(str) - 1
+        - str[-1] #final element of the 
+            - str[c] #elements starting from the end of the sring
+    
+    - Slicing
+        - str[start:finish] #range starts at start and ends at finish (finish is not included)
+            - "Hello World"
+                - str[6:10] #Worl
+                    - str[-5:-1] #Worl
+                - str[6:] #World
+                    - str[6:11] #World
+                - str[:5] #Hello
+                - str[0:11:2] #hlowrd #step = 2, default: step = 1, prints like a loop starting at 0 
+                              #every other character
+                    - str[::-1] #dlrow olleh #reverses string
+
+    - for i in "string": #iterates through the characters of the string 
+
+    - String operations
+        - len(str) #lengh
+        - str3 = str1 + str2 #concatenation ()
+        - str3 = str1 * 2 #repitition
+        - type(str) #give you the type of the variable
+        - chars in strings are compared using ASCII
+        - 'aa' in 'aaa' #True, 'aa" can be found in 'aaa'
+        - strings cannot be changed once created
+            - str[1] = 'l' #gives an error
+        
+    - String Functions
+        - dir(str) #gives functions, '__method__', and functions of the string 'functions'
+
+    - print() manipulations
+        - .format(obj1, obj2) #look up the modifications or read the slides
